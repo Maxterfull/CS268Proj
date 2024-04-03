@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <style>
+            body{
+                background-color: azure;
+                margin: 0;
+                padding: 0;
+            }
+            #container{
+                width: 100vw;
+                display: grid;
+                grid-template-areas: 
+                "a a a a a a"
+                "b b b b b b"
+                "c c d d d d"
+                "c c d d d d"
+                "e e f f f f"
+                "e e f f f f"
+                "g g g g g g"
+            }
+            .content_a{
+                grid-area: a;
+                height: 10vh;
+                background-color:rgb(98, 112, 179);
+                color: rgb(252, 252, 252);
+                padding-top: .5vh;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+            .content_b{
+                grid-area: b;
+            }
+            .content_c{
+                grid-area: c;
+            }
+            .content_d{
+                grid-area: d;
+            }
+            .content_e{
+                grid-area: e;
+            }
+            .content_f{
+                grid-area: f;
+            }
+            .content_g{
+                grid-area: g;
+            }
+
+        </style>
+    </head>
+    <body>
+        <div class="content_a">
+            <h1><center>Tasty Kitchen</center></h1>
+        </div>
+    </body>
+</html>
