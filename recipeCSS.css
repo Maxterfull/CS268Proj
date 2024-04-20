@@ -43,7 +43,7 @@ ul.styled-list{
     overflow: hidden;
     background-color: lightblue;
     width: 100%;
-    position: fixed;
+    position: static;
     
     
     
@@ -76,4 +76,24 @@ li a:hover{
     
     
 
+}
+.header-container {
+    display: flex;
+    align-items: center; /* Vertically align items */
+}
+
+.styled-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.styled-list li {
+    margin-right: 15px; /* Adjust spacing between list items */
+}
+
+#searchInput {
+    margin-left: auto; /* Push search bar to the right */
+    padding: 5px;
 }

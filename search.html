@@ -1,54 +1,104 @@
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-<title>In-Page Search</title>
-<style>
-    #searchInput {
-        margin-bottom: 10px;
-    }
-</style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Visible Text</title>
+    <style>
+        /* Add your CSS styles here if needed */
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        #searchInput {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 300px;
+        }
+
+        #searchResults p {
+            margin: 5px 0;
+        }
+
+        span {
+            background-color: yellow;
+        }
+    </style>
 </head>
+
 <body>
+    <h1>Search Visible Text</h1>
+    <!-- Search input field -->
+    <input type="text" id="searchInput" placeholder="Search..." />
 
-<input type="text" id="searchInput" placeholder="Type to search...">
-<div id="searchResults"></div>
+    <!-- Search results container -->
+    <div id="searchResults"></div>
 
-<script>
-var searchInput = document.getElementById('searchInput');
-var searchResults = document.getElementById('searchResults');
+    <!-- JavaScript code -->
+    <script>
+        var searchInput = document.getElementById('searchInput');
+        var searchResults = document.getElementById('searchResults');
 
-searchInput.addEventListener('input', function() {
-    var searchQuery = this.value.toLowerCase();
-    var paragraphs = document.querySelectorAll('p'); // Selecting all paragraphs, you can adjust selector as per your need
-    searchResults.innerHTML = '';
+        function search() {
+            searchInput.addEventListener('input', function () {
+                var searchQuery = this.value.toLowerCase();
+                searchResults.innerHTML = '';
 
-    if (searchQuery.trim() === '') {
-        return; // If search query is empty, do nothing
-    }
+                if (searchQuery.trim() === '') {
+                    return; // If the search query is empty, do nothing
+                }
 
-    paragraphs.forEach(function(paragraph) {
-        var paragraphText = paragraph.textContent.toLowerCase();
-        if (paragraphText.includes(searchQuery)) {
-            var highlightedText = paragraphText.replace(new RegExp(searchQuery, 'gi'), function(match) {
-                return '<span style="background-color: yellow;">' + match + '</span>';
+                // Tree-walk through all nodes in the body
+                walkThroughNodes(document.body, function (node) {
+                    // Check if the node is a text node
+                    if (node.nodeType === Node.TEXT_NODE) {
+                        // Ensure the text node is visible
+                        var parentElement = node.parentNode;
+                        while (parentElement !== document.body && parentElement !== null) {
+                            if (getComputedStyle(parentElement).display === 'none' || getComputedStyle(parentElement).visibility === 'hidden') {
+                                return; // Skip text nodes in hidden elements
+                            }
+                            parentElement = parentElement.parentNode;
+                        }
+
+                        var textContent = node.textContent.toLowerCase();
+                        if (textContent.includes(searchQuery)) {
+                            var highlightedText = textContent.replace(new RegExp(searchQuery, 'gi'), function (match) {
+                                return '<span style="background-color: yellow;">' + match + '</span>';
+                            });
+                            // Display the highlighted text in search results
+                            searchResults.innerHTML += '<p>' + highlightedText + '</p>';
+                        }
+                    }
+                });
             });
-            searchResults.innerHTML += '<p>' + highlightedText + '</p>';
-        }
-    });
-});
 
-// Clear search results when search input is cleared
-searchInput.addEventListener('keyup', function(event) {
-    if (event.key === 'Backspace' || event.key === 'Delete') {
-        if (this.value.trim() === '') {
-            searchResults.innerHTML = '';
+            // Clear search results when the search input is cleared
+            searchInput.addEventListener('keyup', function (event) {
+                if (event.key === 'Backspace' || event.key === 'Delete') {
+                    if (this.value.trim() === '') {
+                        searchResults.innerHTML = '';
+                    }
+                }
+            });
         }
-    }
-});
-</script>
 
-<!-- Sample Content -->
-<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam ullamcorper purus ac magna ullamcorper, vel elementum ligula aliquam. Donec auctor ultricies turpis, in molestie ipsum bibendum in. Sed eu libero justo. Ut venenatis ipsum sed erat euismod venenatis. Nullam porttitor, turpis id bibendum feugiat, magna augue congue felis, eu tempor justo ipsum nec odio. Vestibulum lobortis mi in libero sollicitudin rutrum.</p>
-<p>Integer at congue enim. Duis at nulla convallis, aliquam sapien sit amet, fermentum libero. Proin elementum magna in lectus rhoncus, nec commodo nulla scelerisque. Fusce euismod, libero quis pharetra aliquet, risus tortor tempus nisi, vel tincidunt risus purus vel eros. Nulla vehicula vehicula nulla eget pulvinar. Curabitur vel ultrices magna.</p>
-<p>Etiam dictum quam eget erat laoreet, et feugiat odio finibus. Nam luctus, nunc a pulvinar placerat, justo sapien posuere odio, at semper mi tortor sit amet mauris. Phasellus a risus varius, vestibulum magna id, auctor ex. Mauris maximus mauris et mauris vulputate lobortis. Sed vitae arcu quis enim pharetra condimentum non eget orci. Donec vitae laoreet lorem.</p>
+        function walkThroughNodes(node, callback) {
+            // Perform a depth-first traversal of the DOM tree
+            var currentNode = node.firstChild;
+            while (currentNode) {
+                callback(currentNode);
+                if (currentNode.hasChildNodes()) {
+                    walkThroughNodes(currentNode, callback);
+                }
+                currentNode = currentNode.nextSibling;
+            }
+        }
+
+        search();
+    </script>
 </body>
+
 </html>
