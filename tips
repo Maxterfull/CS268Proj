@@ -1,0 +1,133 @@
+<html>
+    <header><title>Cooking Tips</title></header>
+    <style>
+    
+    body{
+                background-color:rgb(252, 252, 252);
+                margin: 0;
+                padding: 0;
+                width: 100vw;
+                height: 100vh;
+            }
+         
+            .content_a{
+                grid-area: a;
+                height: 10vh;
+                background-color:rgb(98, 112, 179);
+                color: rgb(252, 252, 252);
+                padding-top: .5vh;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+            .content_b{
+                grid-area: b;
+            }
+            .content_c{
+             
+
+            }
+            
+            ul.menu{
+                display: flex;
+                flex-wrap: nowrap;
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                padding-bottom: 0;
+                background-color: rgb(98, 112, 179);
+                width: 100vw;
+            }
+            li.menu a{
+                display: block;
+                color: rgb(252, 252, 252);
+                text-align: center;
+                padding: 20px 95px;
+                text-decoration: none;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+            li.menu a:hover{
+                background-color: rgb(109, 152, 244);
+            }
+            .content_d{
+                grid-area: a;
+                height: 10vh;
+                background-color:rgb(252, 252, 252);
+                line-height: 30px;
+                padding-top: .5vh;
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-bottom: 700px;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            }
+            .content_g{
+                grid-area: g;
+                background-color: rgb(98, 112, 179);
+                width: 100vw;
+                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                color: rgb(252, 252, 252);
+                padding-top: 20px;
+                
+            }
+            
+         
+
+        </style>
+    </head>
+    <body>
+      
+        <div class="content_a">
+            <h1><center>Tasty Kitchen</center></h1>
+        </div>
+        <div class="content_b">
+            <ul class="menu">
+                <li class="menu"><a href="#">Breakfast</a></li>
+                <li class="menu"><a href="#">Lunch</a></li>
+                <li class="menu"><a href="#">Dinner</a></li>
+                <li class="menu"><a href="#">Desserts</a></li>
+                <li class="menu"><a href="#">Search</a></li>
+                <li class="menu"><a href="#">About</a></li>
+            </ul>
+        </div>
+        <div class="content_d">
+            Welcome to our cooking tips page, where culinary inspiration meets 
+            practical expertise! Whether you're a seasoned chef or just starting 
+            your culinary journey, our collection of tips and tricks will elevate
+             your cooking skills to new heights. From mastering basic techniques 
+             to exploring advanced flavor combinations, we're here to empower you
+              in the kitchen. Get ready to unlock the secrets to creating delicious
+               dishes with confidence and creativity. Let's embark on a delicious adventure together!
+               <br><br>
+               <h2>Tips!</h2>
+               <br>
+              1. Prep Before You Cook: Mise en place, or "everything in its place," is key.
+               Chop your vegetables, measure out your ingredients, and have everything ready
+                before you start cooking to streamline the process.<br>
+                2. Keep Your Knives Sharp: A sharp knife is safer and more efficient than a dull one.
+                 Invest in a good knife sharpener or get your knives professionally sharpened
+                  regularly to ensure precision and ease in the kitchen.<br>
+                  3. Taste as You Go: Season your dishes in stages and taste as you cook to adjust seasoning
+                   levels accordingly. This will help you achieve perfectly balanced flavors and avoid over-seasoning.<br>
+                   4. Control Your Heat: Learn to control the heat on your stove. Different cooking techniques require 
+                   different heat levels, so familiarize yourself with the settings on your stove and adjust as needed.<br>
+                   5. Don't Crowd the Pan: When sautéing or stir-frying, avoid overcrowding the pan. Too many ingredients
+                    can lower the temperature of the pan and result in uneven cooking. Cook in batches if necessary for better results.<br>
+                    6. Use Fresh Herbs: Fresh herbs add brightness and flavor to your dishes. Keep a selection of commonly
+                     used herbs like basil, cilantro, and parsley on hand and add them towards the end of cooking 
+                     for maximum freshness.<br>
+                    7. Rest Your Meat: Allow cooked meat to rest for a few minutes before slicing or serving. 
+                    This allows the juices to redistribute, resulting in juicier and more flavorful meat.<br>
+                    8. Experiment with Spices: Don't be afraid to experiment with spices and seasonings 
+                    to add depth and complexity to your dishes. Start with small amounts and adjust to
+                     taste until you find the perfect balance.<br>
+                     9. Learn from Mistakes: Cooking is all about trial and error. Don't be
+                      discouraged by mistakes; instead, use them as learning opportunities to improve your skills and techniques.<br>
+                      10. Have Fun: Cooking should be enjoyable! Don't be afraid to get creative in the 
+                      kitchen and try new things. Embrace the process, and remember that even the simplest
+                       dish can be a culinary triumph with the right technique and passion.
+        </div>
+        
+        <div class="content_g">
+           <center><h3>CS 268: Websystems - Website</h3></center> 
+        </div>
+   
+    </body>
+</html>
