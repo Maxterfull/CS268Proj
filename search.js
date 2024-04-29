@@ -32,7 +32,7 @@ function search() {
 
     // Clear search results when search input is cleared
     searchInput.addEventListener('keyup', function(event) {
-        if (event.key === 'Backspace' || event.key === 'Delete') {
+        if (event.key === 'Backspace' || event.key === 'Delete' ) {
             if (this.value.trim() === '') {
                 clearHighlights(); // Clear existing highlights
             }

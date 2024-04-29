@@ -1,10 +1,11 @@
 body{
     width: 100vw;
     margin: 0;
+    
 }
 .header{
     grid-area: header;
-   
+   font-family: Arial, Helvetica, sans-serif;
 }
 .content-left{
     grid-area: menu;
@@ -77,9 +78,11 @@ li a:hover{
     
 
 }
+
 .header-container {
     display: flex;
     align-items: center; /* Vertically align items */
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .styled-list {
@@ -100,11 +103,13 @@ li a:hover{
 h1 {
     font-size: 2rem;
     margin-bottom: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h2 {
     font-size: 1.5rem;
     margin-top: 20px;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 ul {
@@ -132,4 +137,56 @@ li {
     font-size: 15px;
     height: 200px;
     width: 20vw;
+    text-overflow: ellipsis;
+    overflow: hidden; 
   }
+  /* Media query for screens with a max width of 768px (mobile) */
+@media (max-width: 768px) {
+    /* Adjusting the grid layout for mobile */
+    .grid {
+        grid-template-areas: 
+        'header'
+        'main'
+        'menu'
+        'right'
+        'footer';
+        grid-template-columns: 1fr;
+    }
+
+    /* Adjusting width of content areas */
+    .content-left,
+    .content-center,
+    .content-right {
+        width: 100%;
+    }
+
+    /* Other adjustments for mobile */
+    .header-container {
+        flex-direction: column; /* Stack items vertically */
+    }
+    
+    /* Adjust the list to take full width on mobile */
+    ul.styled-list {
+        display: block;
+    }
+
+    /* Remove float for list items on mobile */
+    li.styled-list {
+        float: none;
+    }
+
+    /* Make sure the search input takes full width */
+    #searchInput {
+        width: 100%;
+    }
+    .flex-container > a {
+        background-color: #f1f1f1;
+        margin: 10px;
+        padding: 20px;
+        font-size: 10px;
+        height: 20vh;
+        width: 20vw;
+        text-overflow: ellipsis;
+        overflow: hidden; 
+      }
+}
