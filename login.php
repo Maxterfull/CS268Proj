@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php include 'loginpage.php';?>
 <html>
     <script type="text/javascript" src="js/search.js"></script>
     <head>
@@ -27,60 +28,49 @@
         </div>
         
             </div>
-            
-        <div class="flex-container">
+         <form action="Login.php" method="post">
+    <p>Username:</p>
+    <input type="text" name="username">  
+    <p>Password</p>
+    <input type="password" name="password">
+    <input type="submit" value="Login">
+    <p>Don't have an account? <a href="Register.php">Sign up now</a>.</p>
+    </form>
+        </div>
+
         <?php
-$servername = "localhost";
-$username = "root";
-$password = "123";
-$another_password = "";
-$dbname = "groupsite";
-mysqli_report(MYSQLI_REPORT_OFF);
-$conn = new mysqli($servername, $username, $another_password, $dbname);
-
-//check connection
-if($conn->connect_error)
-{
-    die("Connection failed: ".$conn->connect_error);
-}
-
-
-$account = $_POST['name'];
-$user_password = $_POST['password'];
-
-$sql = "SELECT username,password from accounts";
-
-$result = $conn->query($sql);
-
-$loggedin=0;
-
-if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-
-      if($account == $row["username"]){
-        if($user_password == $row['password']){
-            echo "User ".$account." Logged in";
-            $loggedin=1;
-            break;
-        }else{
-            echo "Invalid Password";
-        }
-      }
+    if(empty($_POST['username']) || empty($_POST['password'])){
+        die();
     }
-  } else {
-    echo "No accounts found.";
-  }
+    $username = $_POST['username'];
+    $password = $_POST['password'];
 
-  if($loggedin==0){
-    echo "unable to log in";
-  }
-
-  $conn->close();
-
+    //remove malicious contents
+    $username = htmlspecialchars($username);
+    $password = htmlspecialchars($password);
+    //get the hash of the password 
+    $result = check_user($username, $password);
+    if($result === true)
+    {
+        session_start();
+            //create session information
+            $_SESSION["loggedin"] = true;
+            $_SESSION['username'] = $username;
+            $_SESSION["id"] = $username.date("Y-m-d H:i:s");
+            
+            // Redirect the browser
+            header("Location: homepage.html");
+    }
+    else
+    {
+        //something is wrong
+        echo "<script>alert('$result')</script>";
+        echo "Cannot match the user name and the password you entered!";
+    }
 
 ?>
-        </div>
-    </body>
+
+
+
 </html>
 
