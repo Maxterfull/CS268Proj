@@ -1,5 +1,6 @@
 <html>
     <head>
+        <link rel ="stylesheet" type="text/CSS" href="recipeCSS.css">
         <style>
             body{
                 background-color:rgb(252, 252, 252);
@@ -45,27 +46,7 @@
                 line-height: 30px;
                 font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
             }
-            ul.menu{
-                display: flex;
-                flex-wrap: nowrap;
-                list-style-type: none;
-                margin: 0;
-                padding: 0;
-                padding-bottom: 0;
-                background-color: rgb(98, 112, 179);
-                width: 100vw;
-            }
-            li.menu a{
-                display: block;
-                color: rgb(252, 252, 252);
-                text-align: center;
-                padding: 20px 95px;
-                text-decoration: none;
-                font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-            }
-            li.menu a:hover{
-                background-color: rgb(109, 152, 244);
-            }
+          
             
             .content_d{
                 grid-area: d;
@@ -110,15 +91,15 @@
         <div class="content_a">
             <h1><center>Tasty Kitchen</center></h1>
         </div>
-        <div class="content_b">
-            <ul class="menu">
-                <li class="menu"><a href="#">Breakfast</a></li>
-                <li class="menu"><a href="#">Lunch</a></li>
-                <li class="menu"><a href="#">Dinner</a></li>
-                <li class="menu"><a href="#">Desserts</a></li>
-                <li class="menu"><a href="#">Search</a></li>
-                <li class="menu"><a href="#">About</a></li>
-            </ul>
+        <div class="header">
+            <div class="header-container">
+                <ul class="styled-list">
+                    <li class="styled-list"><a href="homepage.html" target="_blank">Home</a></li>
+                    <li class="styled-list"><a href="about.html" target="_blank">About</a></li>
+                    <li class="styled-list"><a href="recipePages.html" target="_blank">Recipe Central</a></li>
+                    <li class="styled-list"><input type="text" id="searchInput" placeholder="Search..." /></li>
+                </ul>
+            </div>
         </div>
         <div class = "content_h">
             <h3></h3>Welcome to the ultimate destination for culinary enthusiasts -
