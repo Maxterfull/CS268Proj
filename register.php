@@ -10,10 +10,10 @@
         <div class="grid">
             <div class="header">
                 <div class="header-container">
-                    <ul class="styled-list">
-                        <li class="styled-list"><a href="#home">Home</a></li>
-                        <li class="styled-list"><a href="#about">About</a></li>
-                        <li class="styled-list"><a href="#recipes">Recipe Central</a></li>
+                   <ul class="styled-list">
+                    <li class="styled-list"><a href="homepage.html" target="_blank">Home</a></li>
+                    <li class="styled-list"><a href="about.html" target="_blank">About</a></li>
+                    <li class="styled-list"><a href="directory.html" target="_blank">Recipe Central</a></li>
                         <li class="styled-list"><input type="text" id="searchInput" placeholder="Search..." /></li>
                     </ul>
                 </div>
