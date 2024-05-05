@@ -28,22 +28,15 @@ if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
 
       if($username1 == $row["username"]){
-            $loggedin=1;
-            echo "username already in use";
+            
             return true;
-        }else{
-            return false;
         }
       }
     }
    
 
-  if($loggedin==0){
-    echo "unable to log in";
-  }
-
   $conn->close();
-
+  return false;
 }
 
 ?>
