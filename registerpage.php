@@ -23,11 +23,15 @@ VALUES (null,'$username1','$hash');";
 
 if ($conn->query($sql) === TRUE) {
   echo "New record created successfully";
+  $conn->close();
+  return true;
 } else {
   echo "Error: " . $sql . "<br>" . $conn->error;
+  $conn->close();
+  return false;
 }
 
-$conn->close();
+
 
 }
 
