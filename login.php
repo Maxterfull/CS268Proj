@@ -11,10 +11,12 @@
         <div class="grid">
             <div class="header">
                 <div class="header-container">
-                    <ul class="styled-list">
+                <ul class="styled-list">
                     <li class="styled-list"><a href="homepage.html" target="_blank">Home</a></li>
                     <li class="styled-list"><a href="about.html" target="_blank">About</a></li>
                     <li class="styled-list"><a href="directory.html" target="_blank">Recipe Central</a></li>
+                    <li class="styled-list"><a href="account.php" target="_blank">Account</a></li>
+
                         <li class="styled-list"><input type="text" id="searchInput" placeholder="Search..." /></li>
                     </ul>
                 </div>
@@ -57,9 +59,10 @@
             $_SESSION["loggedin"] = true;
             $_SESSION['username'] = $username;
             $_SESSION["id"] = $username.date("Y-m-d H:i:s");
+            echo "<script type='text/javascript'>alert('logged in as $name');</script>";
             
             // Redirect the browser
-            header("Location: homepage.html");
+            header("Location: account.php");
     }
     else
     {
