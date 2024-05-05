@@ -10,10 +10,12 @@
         <div class="grid">
             <div class="header">
                 <div class="header-container">
-                   <ul class="styled-list">
+                <ul class="styled-list">
                     <li class="styled-list"><a href="homepage.html" target="_blank">Home</a></li>
                     <li class="styled-list"><a href="about.html" target="_blank">About</a></li>
                     <li class="styled-list"><a href="directory.html" target="_blank">Recipe Central</a></li>
+                    <li class="styled-list"><a href="account.php" target="_blank">Account</a></li>
+
                         <li class="styled-list"><input type="text" id="searchInput" placeholder="Search..." /></li>
                     </ul>
                 </div>
@@ -37,7 +39,7 @@
     <p>Password</p>
     <input type="password" name="password">
     <p>Reenter Password</p>
-    <input type="password1" name="password1">
+    <input type="password" name="password1">
     <input type="submit" value="Login">
     </form>
 </body>
@@ -59,9 +61,11 @@
     if($password===$password1){
     //enter password to database
     $check = name($username);
-    if($check){echo 'username in use';
+    echo $check;
+    if($check){
     echo '<script>alert("Username is already in use")</script>';
     header("refresh:0");
+    exit();
     
 }
     $result = check_user($username, $password);
@@ -77,6 +81,7 @@
             $_SESSION["id"] = $username.date("Y-m-d H:i:s");
             
             // Redirect the browser
+            header("Location: account.php");
             
     }
     else
