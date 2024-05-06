@@ -58,7 +58,7 @@
             $_SESSION["loggedin"] = true;
             $_SESSION['username'] = $username;
             $_SESSION["id"] = $username.date("Y-m-d H:i:s");
-            echo "<script type='text/javascript'>alert('logged in as $name');</script>";
+            echo "<script type='text/javascript'>alert('logged in as $username');</script>";
             
             // Redirect the browser
             header("Location: account.php");
