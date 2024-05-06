@@ -31,7 +31,7 @@
             <script src="search.js"></script>
         </div>
         <div>
-            You are logged in as <?php echo $_SESSION["loggedin"];?>
+            You are logged in as <?php echo $_SESSION["username"];?>
             <br>
             Want to logout? <a href="logout.php">logout</a>
             <br>
